@@ -1,15 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ErrorPageComponent } from './shared/components/error-page/error-page.component';
+import { PagesComponent } from './pages/pages.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./pages/pages.module')
-      .then(m => m.PagesModule)
+    component: PagesComponent
   },
-  { path: '404', component: ErrorPageComponent },
-  { path: '**', redirectTo: '/404' }
 ];
 
 @NgModule({
