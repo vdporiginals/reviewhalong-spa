@@ -1,16 +1,23 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, TransferState } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 // Module
 import { AppRoutingModule } from './app-routing.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateBrowserLoader } from './shared/services/translate-browser-loader.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { ToastrModule } from 'ngx-toastr';
+import { TransferHttpCacheModule } from '@nguniversal/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { PagesModule } from './pages/pages.module';
+
+// AOT compilation support
+export function exportTranslateStaticLoader(http: HttpClient, transferState: TransferState) {
+  return new TranslateBrowserLoader('/assets/i18n/', '.json', transferState, http);
+}
 // Component
 import { AppComponent } from './app.component';
 import { HeaderBarComponent } from './shared/components/header-bar/header-bar.component';
@@ -32,20 +39,23 @@ import { RouterModule } from '@angular/router';
     SidenavExpandComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     PagesModule,
     ToastrModule,
     RouterModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    TransferHttpCacheModule,
+    FlexLayoutModule.withConfig({ ssrObserveBreakpoints: ['xs', 'lt-md'] }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: httpTranslateLoader,
-        deps: [HttpClient]
+        useFactory: exportTranslateStaticLoader,
+        deps: [HttpClient, TransferState]
       }
-    }),
+    }
+    ),
     MatSidenavModule,
     MatIconModule
   ],
@@ -53,8 +63,3 @@ import { RouterModule } from '@angular/router';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-// AOT compilation support
-export function httpTranslateLoader(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
-}

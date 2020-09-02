@@ -1,0 +1,21 @@
+<div fxLayout="row">
+
+    <div fxFlex="50" fxLayoutAlign="start">
+        <button (click)="toggleSide()" class="hamburger_btn">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <app-header-search></app-header-search>
+    </div>
+    <div fxFlex="50" [style.float]="'right'" fxLayoutAlign="end">
+        <!-- <div>{{'Welcome'| translate}}</div> -->
+        <app-header-login></app-header-login>
+        <span class="form-inline">
+            <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
+                <option *ngFor="let language of translate.getLangs()" [value]="language"
+                    [selected]="language === translate.currentLang">
+                    {{ language }}
+                </option>
+            </select>
+        </span>
+    </div>
+</div>

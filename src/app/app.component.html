@@ -1,29 +1,18 @@
-<!-- <span class="form-inline">
-  <select 
-      class="form-control" 
-      #selectedLang 
-      (change)="switchLang(selectedLang.value)">
-    <option *ngFor="let language of translate.getLangs()" 
-      [value]="language"
-      [selected]="language === translate.currentLang">
-      {{ language }}
-    </option>
-  </select>
-</span> -->
 <div>
-  <button (click)="sidenav.open()" class="hamburger_btn" fxHide.gt-md>
-    <mat-icon>menu</mat-icon>
-  </button>
-  <app-header-bar></app-header-bar>
-  <mat-drawer-container class="example-container">
-    <mat-sidenav #sidenav>
-      <app-sidenav-expand></app-sidenav-expand>
-    </mat-sidenav>
+  <app-header-bar (sidenavToggle)="sidenav.toggle()" (drawerClose)="drawer.toggle()"></app-header-bar>
+  <mat-drawer-container class="parent_container">
     <mat-drawer mode="side" #drawer opened>
       <app-side-menu></app-side-menu>
     </mat-drawer>
     <mat-drawer-content>
-      <router-outlet></router-outlet>
+      <mat-drawer-container class="child_container" [hasBackdrop]="false">
+        <mat-drawer #sidenav mode="side">
+          <app-sidenav-expand></app-sidenav-expand>
+        </mat-drawer>
+        <mat-drawer-content>
+          <router-outlet></router-outlet>
+        </mat-drawer-content>
+      </mat-drawer-container>
     </mat-drawer-content>
   </mat-drawer-container>
 </div>
