@@ -1,12 +1,13 @@
-<div fxLayout="row">
+<div fxLayout="row" class="header_bar">
 
-    <div fxFlex="50" fxLayoutAlign="start">
+    <div fxFlex="50" fxLayoutAlign="start" fxLayoutGap="10px">
         <button (click)="toggleSide()" class="hamburger_btn">
             <mat-icon>menu</mat-icon>
         </button>
+        <img src="https://s1.vnecdn.net/vnexpress/restruct/i/v344/v2_2019/pc/graphics/logo.svg" alt="">
         <app-header-search></app-header-search>
     </div>
-    <div fxFlex="50" [style.float]="'right'" fxLayoutAlign="end">
+    <div fxFlex="50" [style.float]="'right'" fxLayoutAlign="end" [style.padding.px]="10">
         <!-- <div>{{'Welcome'| translate}}</div> -->
         <app-header-login></app-header-login>
         <span class="form-inline">

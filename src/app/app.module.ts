@@ -9,6 +9,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatListModule } from '@angular/material/list';
 import { ToastrModule } from 'ngx-toastr';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -57,7 +60,10 @@ import { RouterModule } from '@angular/router';
     }
     ),
     MatSidenavModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatListModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

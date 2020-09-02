@@ -1,0 +1,9 @@
+::ng-deep .sidenav_container {
+  width: 60px;
+  padding-left: 20px;
+  height: calc(100vh - 200px);
+  .mat-list-base .mat-list-item .mat-list-item-content,
+  .mat-list-base .mat-list-option .mat-list-item-content {
+    flex-direction: column !important;
+  }
+}

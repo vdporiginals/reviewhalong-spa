@@ -1,5 +1,10 @@
-<p>side-menu works!</p>
-<p>side-menu works!</p>
-<p>side-menu works!</p>
-<p>side-menu works!</p>
-<p>side-menu works!</p>
+<div class="sidenav_container">
+    <mat-nav-list role="list">
+        <mat-list-item fxLayout="column" role="listitem">
+            <a *ngFor="let page of pages" fxLayout="column">
+                <img [src]="page.icon" [alt]="page.title">
+                <span>{{ page?.title }} </span>
+            </a>
+        </mat-list-item>
+    </mat-nav-list>
+</div>
