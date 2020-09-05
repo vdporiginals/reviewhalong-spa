@@ -1,16 +1,16 @@
-<div fxLayout="row" class="header_bar">
+<div fxLayout="row" class="header_bar" fxLayoutAlign="center center">
 
-    <div fxFlex="50" fxLayoutAlign="start" fxLayoutGap="10px">
+    <div fxFlex="50" fxLayoutAlign="start" fxLayoutGap="20px">
         <button (click)="toggleSide()" class="hamburger_btn">
             <mat-icon>menu</mat-icon>
         </button>
-        <img src="https://s1.vnecdn.net/vnexpress/restruct/i/v344/v2_2019/pc/graphics/logo.svg" alt="">
+        <img [style.width.px]="60" [routerLink]="['/']" src="assets/image/logo-web.svg" alt="">
         <app-header-search></app-header-search>
     </div>
     <div fxFlex="50" [style.float]="'right'" fxLayoutAlign="end" [style.padding.px]="10">
         <!-- <div>{{'Welcome'| translate}}</div> -->
         <app-header-login></app-header-login>
-        <span class="form-inline">
+        <span class="form-inline" [style.margin-left.px]="10">
             <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
                 <option *ngFor="let language of translate.getLangs()" [value]="language"
                     [selected]="language === translate.currentLang">

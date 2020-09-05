@@ -1,9 +1,17 @@
 ::ng-deep .sidenav_container {
   width: 60px;
-  padding-left: 20px;
+  padding-left: 7px;
   height: calc(100vh - 200px);
   .mat-list-base .mat-list-item .mat-list-item-content,
   .mat-list-base .mat-list-option .mat-list-item-content {
     flex-direction: column !important;
   }
+  .mat-list-base .mat-list-item,
+  .mat-list-base .mat-list-option {
+    height: 100%;
+    min-height: 48px;
+  }
+}
+span {
+  text-align: center;
 }
