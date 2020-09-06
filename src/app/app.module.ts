@@ -15,7 +15,6 @@ import { MatListModule } from '@angular/material/list';
 import { ToastrModule } from 'ngx-toastr';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { PagesModule } from './pages/pages.module';
 
 // AOT compilation support
 export function exportTranslateStaticLoader(http: HttpClient, transferState: TransferState) {
@@ -44,7 +43,6 @@ import { RouterModule } from '@angular/router';
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
-    PagesModule,
     ToastrModule,
     RouterModule,
     BrowserAnimationsModule,

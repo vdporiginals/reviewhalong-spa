@@ -1,0 +1,23 @@
+@import "../../../scss/_varriable.scss";
+div {
+  font-weight: 500;
+}
+.partner {
+  cursor: pointer;
+  &:hover {
+    color: $color_warn_opacity;
+  }
+}
+
+.login {
+  cursor: pointer;
+  &:hover {
+    color: $color_warn_opacity;
+  }
+}
+.register {
+  cursor: pointer;
+  &:hover {
+    color: $color_warn_opacity;
+  }
+}

@@ -1,0 +1,25 @@
+@import "../../scss/_varriable.scss";
+::ng-deep .expandnav_container {
+  //   width: 200px;
+  padding-left: 7px;
+  //   height: calc(100vh - 200px);
+  .mat-list-base .mat-list-item .mat-list-item-content,
+  .mat-list-base .mat-list-option .mat-list-item-content {
+    // flex-direction: column !important;
+  }
+  .mat-list-base .mat-list-item,
+  .mat-list-base .mat-list-option {
+    height: 100%;
+    font-size: 0.8rem;
+    min-height: 48px;
+    .mat-icon {
+      margin-right: 5px;
+    }
+    &:hover {
+      color: $color_warn_opacity;
+    }
+  }
+}
+span {
+  text-align: center;
+}
