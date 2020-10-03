@@ -16,7 +16,7 @@ export class TranslateServerLoader implements TranslateLoader {
 
     public getTranslation(lang: string): Observable<any> {
         return Observable.create(observer => {
-            const assets_folder = join(process.cwd(), 'dist', 'Reviewhalong-SPA/browser', this.prefix);
+            const assets_folder = join(process.cwd(), 'dist', 'rvhl-client/browser', this.prefix);
             const jsonData = JSON.parse(fs.readFileSync(`${assets_folder}\\${lang}${this.suffix}`, 'utf8'));
 
             // Here we save the translations in the transfer-state

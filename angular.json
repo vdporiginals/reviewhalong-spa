@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Reviewhalong-SPA": {
+    "rvhl-client": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Reviewhalong-SPA/browser",
+            "outputPath": "dist/rvhl-client/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Reviewhalong-SPA:build"
+            "browserTarget": "rvhl-client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Reviewhalong-SPA:build:production"
+              "browserTarget": "rvhl-client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Reviewhalong-SPA:build"
+            "browserTarget": "rvhl-client:build"
           }
         },
         "test": {
@@ -115,18 +115,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Reviewhalong-SPA:serve"
+            "devServerTarget": "rvhl-client:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Reviewhalong-SPA:serve:production"
+              "devServerTarget": "rvhl-client:serve:production"
             }
           }
         },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/Reviewhalong-SPA/server",
+            "outputPath": "dist/rvhl-client/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json"
           },
@@ -147,21 +147,21 @@
         "serve-ssr": {
           "builder": "@nguniversal/builders:ssr-dev-server",
           "options": {
-            "browserTarget": "Reviewhalong-SPA:build",
-            "serverTarget": "Reviewhalong-SPA:server"
+            "browserTarget": "rvhl-client:build",
+            "serverTarget": "rvhl-client:server"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Reviewhalong-SPA:build:production",
-              "serverTarget": "Reviewhalong-SPA:server:production"
+              "browserTarget": "rvhl-client:build:production",
+              "serverTarget": "rvhl-client:server:production"
             }
           }
         },
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "browserTarget": "Reviewhalong-SPA:build:production",
-            "serverTarget": "Reviewhalong-SPA:server:production",
+            "browserTarget": "rvhl-client:build:production",
+            "serverTarget": "rvhl-client:server:production",
             "routes": [
               "/"
             ]
@@ -172,5 +172,5 @@
         }
       }
     }},
-  "defaultProject": "Reviewhalong-SPA"
+  "defaultProject": "rvhl-client"
 }

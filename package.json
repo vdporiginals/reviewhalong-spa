@@ -1,5 +1,5 @@
 {
-  "name": "reviewhalong-spa",
+  "name": "rvhl-client",
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,10 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev:ssr": "ng run Reviewhalong-SPA:serve-ssr",
-    "serve:ssr": "node dist/Reviewhalong-SPA/server/main.js",
-    "build:ssr": "ng build --prod && ng run Reviewhalong-SPA:server:production",
-    "prerender": "ng run Reviewhalong-SPA:prerender"
+    "dev:ssr": "ng run rvhl-client:serve-ssr",
+    "serve:ssr": "node dist/rvhl-client/server/main.js",
+    "build:ssr": "ng build --prod && ng run rvhl-client:server:production",
+    "prerender": "ng run rvhl-client:prerender"
   },
   "private": true,
   "dependencies": {
