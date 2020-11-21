@@ -1,6 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { MatDrawer } from '@angular/material/sidenav';
-import { TranslateService } from '@ngx-translate/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header-bar',
@@ -11,17 +9,17 @@ export class HeaderBarComponent implements OnInit {
   @Output() sidenavToggle = new EventEmitter();
   @Output() drawerClose = new EventEmitter();
   constructor(
-    public translate: TranslateService
+    // public translate: TranslateService
   ) {
-    this.translate.addLangs(['en', 'vi']);
-    this.translate.setDefaultLang('vi');
-    this.translate.use('vi'); //--> I didn't had this line before
+    // this.translate.addLangs(['en', 'vi']);
+    // this.translate.setDefaultLang('vi');
+    // this.translate.use('vi'); //--> I didn't had this line before
   }
   ngOnInit(): void {
   }
 
   switchLang(lang: string) {
-    this.translate.use(lang);
+    // this.translate.use(lang);
   }
   toggleSide(): void {
     this.sidenavToggle.emit();

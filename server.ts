@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
+ */
+import '@angular/localize/init';
 import 'zone.js/dist/zone-node';
 
 import { ngExpressEngine } from '@nguniversal/express-engine';
@@ -18,7 +22,6 @@ export function app(): express.Express {
   server.engine('html', ngExpressEngine({
     bootstrap: AppServerModule,
   }));
-
   server.set('view engine', 'html');
   server.set('views', distFolder);
 
@@ -31,7 +34,14 @@ export function app(): express.Express {
 
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {
-    res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
+    const supportedLocales = ['en', 'vi']; // supported Locales 
+    const defaultLocale = 'vi';
+    const matches = req.url.match(/^\/([a-z]{2}(?:-[A-Z]{2})?)\//);
+
+    //check if the requested url has a correct format '/locale' and matches any of the supportedLocales
+    const locale = (matches && supportedLocales.indexOf(matches[1]) !== -1) ? matches[1] : defaultLocale;
+
+    res.render(`${locale}/${indexHtml}`, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
 
   return server;

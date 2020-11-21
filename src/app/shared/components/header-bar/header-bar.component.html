@@ -12,10 +12,10 @@
         <app-header-login></app-header-login>
         <span class="form-inline" [style.margin-left.px]="10">
             <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
-                <option *ngFor="let language of translate.getLangs()" [value]="language"
+                <!-- <option *ngFor="let language of translate.getLangs()" [value]="language"
                     [selected]="language === translate.currentLang">
                     {{ language }}
-                </option>
+                </option> -->
             </select>
         </span>
     </div>
