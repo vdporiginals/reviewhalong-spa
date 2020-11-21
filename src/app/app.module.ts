@@ -14,7 +14,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 import { ToastrModule } from 'ngx-toastr';
 import { TransferHttpCacheModule } from '@nguniversal/common';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 // AOT compilation support
 export function exportTranslateStaticLoader(http: HttpClient, transferState: TransferState) {
@@ -48,7 +47,6 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     HttpClientModule,
     TransferHttpCacheModule,
-    FlexLayoutModule.withConfig({ ssrObserveBreakpoints: ['xs', 'lt-md'] }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
